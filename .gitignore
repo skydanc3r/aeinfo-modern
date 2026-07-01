@@ -1,3 +1,5 @@
 aeinfo
 aquaerod
 *.o
+*.swp
+*~
