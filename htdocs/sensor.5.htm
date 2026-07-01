@@ -1,0 +1,71 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="sensor.5.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>Sensor 1</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Name</td><td><script language=aeinfo>printInput sensor.5.name</script></td></tr>
+<tr><td class="label">Current Temperature [°C]</td><td><script language=aeinfo>printInputRO sensor.5.temp</script></td></tr>
+
+
+<tr><td class=section colspan=2 nowrap>Preferences</td></tr>
+
+<tr><td class="label">Correction Factor</td><td><script language=aeinfo>printInput sensor.5.factor</script></td></tr>
+<tr><td class="label">Correction Offset</td><td><script language=aeinfo>printInput sensor.5.offset</script></td></tr>
+<tr><td class="label">Controller Factor</td><td><script language=aeinfo>printInput sensor.5.controllerFactor</script></td></tr>
+<tr><td class="label">Controller Delay in sec</td><td><script language=aeinfo>printInput sensor.5.controllerTime</script></td></tr>
+
+
+
+<tr><td class=section colspan=2 nowrap>Optionen</td></tr>
+<tr><td class="label">Minimum limit [°C]</td><td><script language=aeinfo>printInput sensor.5.min</script></td></tr>
+<tr><td class="label">Reference Value [°C]</td><td><script language=aeinfo>printInput sensor.5.opt</script></td></tr>
+<tr><td class="label">Maximum limit [°C]</td><td><script language=aeinfo>printInput sensor.5.max</script></td></tr>
+<tr><td class="label">Alarm Threshold [°C]</td><td><script language=aeinfo>printInput sensor.5.alarm</script></td></tr>
+<tr><td class="label">Hysteresis [K]</td><td><script language=aeinfo>printInput sensor.5.hyst</script></td></tr>
+
+<!--
+sensor.5.factor", "Korrekturfaktor
+sensor.5.offset", "Korrekturoffset
+sensor.5.controllerTime", "Regler Verzögerung
+sensor.5.controllerFactor", "Regler Faktor
+
+sensor.5.min", "Minimaler Regelungswert
+sensor.5.opt", "Sollwert für Sensor
+sensor.5.max", "Maximaler Regelungswert
+sensor.5.alarm", "Alarmtemperatur
+sensor.5.hyst", "Hysterese
+-->
+
+
+
+
+
+
+
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<td><input class=flatbutton type=submit style="font-weight:bold;" value="Apply Changes"></td></tr></table>
+
+
+</form>
+
+</body>
+</html>
+

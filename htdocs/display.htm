@@ -1,0 +1,95 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="display.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>Display</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Backlight On</td><td><script language=aeinfo>printCheckbox lcd.settings,BacklightOn</script></td></tr>
+<tr><td width=30% class="label">Turn off Backlight and ShutDown</td><td><script language=aeinfo>printCheckbox lcd.settings,CompleteOff</script></td></tr>
+<tr><td width=30% class="label">Restart in USB-LCD Mode</td><td><script language=aeinfo>printCheckbox lcd.settings,USBLCDBoot</script></td></tr>
+<tr><td class="label">Display Type</td><td class="label"><script language=aeinfo>printFriendlyEnumValue lcd.typename</script></td></tr>
+
+
+<tr><td class=section colspan=2 nowrap>Options</td></tr>
+<tr><td class="label">Backlight [%]</td><td><script language=aeinfo>printInput lcd.backlight</script></td></tr>
+<tr><td class="label">Contrast [%]</td><td><script language=aeinfo>printInput lcd.contrast</script></td></tr>
+<tr><td class="label">Fade-Time [s]</td><td><script language=aeinfo>printInput lcd.fadingTime</script></td></tr>
+<tr><td class="label">Page Delay [s]</td><td><script language=aeinfo>printInput lcd.pageDelay</script></td></tr>
+
+
+<tr><td class="label">Display Information</td><td>
+<script language=aeinfo>printDisplayPagesSelection</script>
+<!--
+<select name="lcd.pages" multiple>
+  <option value="TempOverview" selected>Temperature Overview</option>
+  <option value="TempSensor_1_2" selected>Temperature 1 & 2</option>
+  <option value="TempSensor_3_4">Temperature 3 & 4</option>
+  <option value="TempSensor_5_6">Temperature 5 & 6</option>
+  <option value="LCDFan_1">FAN 1 Details</option>
+  <option value="LCDFan_2">FAN 2 Details</option>
+  <option value="LCDFan_3">FAN 3 Details</option>
+  <option value="LCDFan_4">FAN 4 Details</option>
+  <option value="Aquastream_1_A">Aquastream 1, Page A</option>
+  <option value="Aquastream_1_B">Aquastream 1, Page B</option>
+  <option value="Aquastream_2_A">Aquastream 2, Page A</option>
+  <option value="Aquastream_2_B">Aquastream 2, Page B</option>
+  <option value="FlowSensor_1">FlowSensor 1</option>
+  <option value="FlowSensor_2">FlowSensor 2</option>
+  <option value="LCDtubemeter">TubeMeter Water Level Sensor</option>
+  <option value="aquaero">Aquaero Information</option>
+  <option value="Powersensor_1">Powersensor 1</option>
+  <option value="Powersensor_2">Powersensor 2</option>
+  <option value="Fan_Voltage_1_2">Fan Voltage 1 and 2</option>
+  <option value="Fan_Voltage_3_4">Fan Voltage 1 and 2</option>
+  <option value="Fan_Overview">Fan Overview 1-4</option>
+  <option value="aquaero_info1">Aquaero Hardware/Firmware Page 1</option>
+  <option value="aquaero_info2">Aquaero Hardware/Firmware Page 2</option>
+</select>
+-->
+</td></tr>
+
+
+<!--
+lcd.settings:BacklightOn,CompleteOff,USBLCDBoot
+lcd.typename:LCD,VFD,OLED,NODISPLAY
+
+lcd.backlight
+lcd.contrast
+lcd.fadingTime
+lcd.pageDelay
+lcd.pages:
+
+(lcd.usblcd.mode)
+
+-->
+
+</table>
+
+</td>
+</tr>
+
+
+
+
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=reset value="Reset"></td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<td><input class=flatbutton type=submit style="font-weight:bold;" value="Apply Changes"></td></tr></table>
+
+
+</form>
+
+</body>
+</html>
+

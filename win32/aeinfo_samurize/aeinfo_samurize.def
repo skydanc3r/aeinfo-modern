@@ -1,0 +1,16 @@
+; $Id: aeinfo_samurize.def 30 2006-09-27 00:35:25Z matt $
+; Sample.def : Declares the module parameters for the DLL.
+
+LIBRARY      "aeinfo_samurize"
+
+EXPORTS
+	HelloWorld          = _HelloWorld@8
+	dllshutdown         = _dllshutdown@4
+	dllstartup          = _dllstartup@8
+	dlltype             = _dlltype@0
+	getinfo             = _getinfo@4
+	getparam            = _getparam@4
+	init                = _init@0
+	getValue			= _getValue@8
+	getValueAsNumber	= _getValueAsNumber@8
+    ; Explicit exports can go here

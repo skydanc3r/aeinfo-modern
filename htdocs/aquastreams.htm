@@ -1,0 +1,70 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="aquastreams.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>Aquastream 1</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Current [mA]</td><td><script language=aeinfo>printInputRO aquastream.1.current</script></td></tr>
+<tr><td class="label">Voltage [V]</td><td><script language=aeinfo>printInputRO aquastream.1.voltage</script></td></tr>
+<tr><td class="label">Power Measurement [W]</td><td><script language=aeinfo>printInputRO aquastream.1.power</script></td></tr>
+<tr><td class="label">Frequency [Hz]</td><td><script language=aeinfo>printInputRO aquastream.1.rawFrequency</script></td></tr>
+
+<!--
+aquastream.1.command: Set_Default, Anti_Air, Set_Frequency
+aquastream.1.current
+aquastream.1.voltage
+aquastream.1.power
+-->
+
+</table>
+
+</td>
+</tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>Aquastream 2</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Current [mA]</td><td><script language=aeinfo>printInputRO aquastream.2.current</script></td></tr>
+<tr><td class="label">Voltage [V]</td><td><script language=aeinfo>printInputRO aquastream.2.voltage</script></td></tr>
+<tr><td class="label">Power Measurement [W]</td><td><script language=aeinfo>printInputRO aquastream.2.power</script></td></tr>
+<tr><td class="label">Frequency [Hz]</td><td><script language=aeinfo>printInputRO aquastream.2.rawFrequency</script></td></tr>
+
+<!--
+aquastream.2.command: Set_Default, Anti_Air, Set_Frequency
+aquastream.2.current
+aquastream.2.voltage
+aquastream.2.power
+-->
+
+</table>
+
+</td>
+</tr>
+
+
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<!-- <td><input type=submit style="font-weight:bold;" value="Apply Changes"></td>--></tr></table>
+
+
+</form>
+
+</body>
+</html>
+

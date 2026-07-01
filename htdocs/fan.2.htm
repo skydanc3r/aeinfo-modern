@@ -1,0 +1,80 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="fan.2.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>FAN 2</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Name</td><td><script language=aeinfo>printInput fan.2.name</script></td></tr>
+<tr><td class="label">Current Power [%]</td><td><script language=aeinfo>printInputRO fan.2.setPower</script></td></tr>
+<tr><td class="label">Current Speed [RPM]</td><td><!-- fan.2.rpm --><script language=aeinfo>printInputRO fan.2.rpm</script></td></tr>
+
+
+<tr><td class=section colspan=2 nowrap>Preferences</td></tr>
+<tr><td class=label>Fan Settings</td><td>
+<script language=aeinfo>printSelect fan.2.mode,MANUAL_POWER,MANUAL_RPM,AUTO_LINEAR,AUTO_PROG,AUTO_TARGET</script>
+<!--
+<select name=fan.2.mode>
+<option value="MANUAL_POWER">Manual, Set Power Input</option>
+<option value="MANUAL_RPM">Manual, Set RPM</option>
+<option value="AUTO_LINEAR">Automatic, Adjust Lineraly</option>
+<option value="AUTO_PROG">Automatic, Adjust Progressively</option>
+<option value="AUTO_TARGET">Automatic, Adjust to Temperature</option>
+</select>
+-->
+</td></tr>
+<tr><td class="label">Ignore Speedometer Signal</td><td><script language=aeinfo>printCheckbox fan.2.mode,IGNORE_RPM</script></td></tr>
+<tr><td class="label">Hold Minimum Power</td><td><script language=aeinfo>printCheckbox fan.2.mode,FORCE_MIN_POWER</script></td></tr>
+<tr><td class="label">Calibration value in impulses/revolution</td><td><script language=aeinfo>printInput fan.2.pulse</script></td></tr>
+<tr><td class=label>Assign to Sensor</td><td class=label><script language=aeinfo>printSensorSelection fan.2.sensor.1</script> and <script language=aeinfo>printSensorSelection fan.2.sensor.2</script>.</td>
+</tr>
+
+
+<tr><td class=section colspan=2 nowrap>Options</td></tr>
+
+<tr><td class="label">Minimum Power [%]</td><td><script language=aeinfo>printInput fan.2.minimumPower</script></td></tr>
+<tr><td class="label">Power Input [%]</td><td><script language=aeinfo>printInput fan.2.setPower</script></td></tr>
+<tr><td class="label">Set rotation speed in rev/min [RPM]</td><td><script language=aeinfo>printInput fan.2.setRPM</script></td></tr>
+
+<tr><td class="label">Maximum RPM </td><td><script language=aeinfo>printInput fan.2.maxRPM</script></td></tr>
+<tr><td class="label">Test Maximum RPM</td><td><script language=aeinfo>printCheckbox fan.2.mode,GET_MAX_RPM_NOW</script></td></tr>
+
+
+
+<!--
+fan.2.mode / fan.2.mode_raw: IGNORE_RPM, GET_MAX_RPM_NOW, FORCE_MIN_POWER
+fan.2.sensor.1
+fan.2.sensor.2
+
+fan.2.minimumPower
+fan.2.setPower
+fan.2.setRPM
+
+fan.2.pulse", "Impulse/Umdrehung
+fan.2.maxRPM
+-->
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<td><input class=flatbutton type=submit style="font-weight:bold;" value="Apply Changes"></td></tr></table>
+
+
+</form>
+
+</body>
+</html>
+

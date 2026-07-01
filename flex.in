@@ -1,0 +1,42 @@
+%{
+%}
+
+SCRIPT      [sS][cC][rR][iI][pP][tT]
+LANG        [lL][aA][nN][gG][uU][aA][gG][eE]
+WS          [ \n\t]+
+WSOPT       [ \n\t]*
+
+%%
+
+"<"{SCRIPT}{WS}{LANG}{WSOPT}"="{WSOPT}("\""|"'")?"aeinfo"("\""|"'")?{WSOPT}">"	{
+	  yyinst->startScript(yytext);
+	}
+
+"</"{SCRIPT}{WSOPT}">"	{
+	  yyinst->endScript(yytext);
+	}
+
+.	{
+          yyinst->feed(yytext);
+	}
+
+"\n"	{
+          yyinst->feed(yytext);
+        }
+
+%%
+
+int yywrap ()
+{
+  return 1;
+}
+
+void prepare_yylex ( FILE * f )
+{
+  yyin = f;
+}
+
+void run_yylex ()
+{
+  yylex();
+}

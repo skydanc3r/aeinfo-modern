@@ -1,0 +1,9 @@
+Installation:
+
+  % gzip -cd aeinfo-@AEINFO_VERSION@.tar.gz | tar xvf -  # unpack the sources
+  % cd aeinfo-@AEINFO_VERSION@                           # change to the toplevel directory
+  % make                                    # build
+  [ Become root if necessary ]
+  % make install                            # install the binary    
+
+Have fun with this software (try 'aeinfo help')

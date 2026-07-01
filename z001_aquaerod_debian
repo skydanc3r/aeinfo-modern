@@ -1,0 +1,118 @@
+#! /bin/sh
+#
+#  Generated: Sun Nov 18 11:11:28 MST 2007
+#  created by egawrangler@yahoo.com
+#
+#  z001_aquaerod_s - Aquaero Web Daemon Startup Script
+#
+#	INSTALLATION - 	1. Compile and install the Aquaero Web Daemon
+#			2. Ensure that aquaerod, aeinfo, and the htdocs folder reside in /usr/local/bin
+#				or wherever you copied them to.  If different than /usr/local/bin
+#				be sure to add the path to the PATH declaration below and 
+#				properly update the d_start() method.  Note that this script is currently 
+#				set up for aquaerod NOT RESIDING in /opt/aquaerod.  
+#			3. Copy this script to /etc/init.d (for Debian style distros).
+#			4. At the console, type "update-rc.d z001_aquaerod_s start 99 2 3 5 . stop 99 0 6 ."
+#			5. The script file name "z001_aquaerod_debian" is named this for a reason.  The daemon
+#				fails to launch if not run independently of other scripts.  Because 
+#				the 2.6 kernel and above loads startup functions in parallel, this 
+#				confuses the Aquaero daemon.  The file name "should" force it to be the 
+#				last one loaded in your startup.  Be sure to check /etc/rc5.d and the others
+#				to make sure.
+#			6. Reboot and cross your fingers....
+#  
+#
+#######################################################################
+
+# set all path variables for loading daemon log messages
+set -e
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# check for the presence of the proper log functions from the BASH shell
+# if log_begin_msg and the like are not present, you'll have to edit this script manually
+#  just replace the log_begin_msg and the like with the proper echo'd strings
+if [ -r /lib/lsb/init-functions ]; then
+	. /lib/lsb/init-functions
+	logbegin="log_begin_msg"
+	logend="log_end_msg"
+else
+	logbegin="echo -n"
+	logend=`printf "echo .\n"`
+fi
+
+# Exit if the daemon binary is NOT available, executable, etc.
+test -x /usr/local/bin/aquaerod || exit 0
+
+# Start function
+d_start() {
+
+	# fill a pid with whatever the aquaerod service holds
+	the_pid=`ps -A | egrep "aquaerod$" | awk '{$1=$1;print}' | cut -d ' ' -f1`
+	if [ "$the_pid" = "" ]; then
+		# if the pid was empty, execute aquaerod here
+		# first set the aquaero time
+		aeinfo set
+
+		# now navigate to where aquaerod is installed, note how the daemon must be loaded this way
+		cd /
+		cd usr
+		cd local
+		cd bin
+		./aquaerod
+	else
+		echo "Aquaero Web Daemon is already running!"
+	fi
+}
+
+# Stop function
+d_stop() {
+	# this function doesn't really work, the daemon still somehow persists in memory
+	# the pid CAN be destroyed, but the daemon still continues to run...
+	# ...possibly a design flaw?
+	the_pid=`ps -A | egrep "aquaerod$" | awk '{$1=$1;print}' | cut -d ' ' -f1`
+	if [ "$the_pid" != "" ]; then
+		kill $the_pid
+	else
+		echo "Aquaero Web Daemon is not running!"
+	fi
+}
+
+# Status function
+d_status() {
+	# output the pid number of the daemon
+	the_pid=`ps -A | egrep "aquaerod$" | awk '{$1=$1;print}' | cut -d ' ' -f1`
+	if [ "$the_pid" != "" ]; then
+		echo "Aquaero Web Daemon (pid $the_pid) is running"
+	else
+		echo "Aquaero Web Daemon is not running!"
+	fi
+}
+
+case "$1" in
+	start)
+		$logbegin "Starting Aquaero Web Daemon..."
+		d_start
+		$logend $?
+		;;
+	stop)
+		$logbegin "Stopping Aquaero Web Daemon..."
+		d_stop
+		$logend $?
+		;;
+	status)
+		$logbegin "Getting status of Aquaero Web Daemon..."
+		d_status
+		$logend $?
+		;;
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		;;
+	*)
+	log_success_msg "Usage: $0 {start|stop|status|restart}"
+	exit 1
+	;;
+esac
+exit 0
+

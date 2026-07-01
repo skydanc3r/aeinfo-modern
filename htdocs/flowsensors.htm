@@ -1,0 +1,60 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="flowsensors.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>FlowSensors</td></tr></table>
+
+<table width="100%">
+<tr><td width="30%" class="label">Name</td><td><script language=aeinfo>printInput flowsensor.1.name</script></td></tr>
+<tr><td class="label">Current FlowRate [<script language=aeinfo>printFlowUnit</script>]</td><td><script language=aeinfo>printInputRO flowsensor.1.flow</script></td></tr>
+
+
+<tr><td class=section colspan=2 nowrap>Preferences</td></tr>
+<tr><td class="label">Display Liters/Minute instead of Liters/Hour</td><td><script language=aeinfo>printCheckbox flowsensor.mode,l_minute_hour</script></td></tr>
+<tr><td class="label">Use FAN 4 as FlowSensor</td><td><script language=aeinfo>printCheckbox flowsensor.mode,l_minute_hour</script></td></tr>
+<tr><td class="label">Calibration Value</td><td><script language=aeinfo>printInput flowsensor.1.pulse</script></td></tr>
+<tr><td class="label">Alarm Limit [<script language=aeinfo>printFlowUnit</script>]</td><td><script language=aeinfo>printInput flowsensor.1.lowAlarm</script></td></tr>
+<tr><td class="label">Alarm Limit (second FlowSensor) [<script language=aeinfo>printFlowUnit</script>]</td><td><script language=aeinfo>printInput flowsensor.2.lowAlarm</script></td></tr>
+
+<!--
+flowsensor.mode: l_minute_hour, use_fan4_as_flowsensor
+flowsensor.1.name
+flowsensor.1.flow
+
+flowsensor.1.pulse
+flowsensor.1.lowAlarm
+flowsensor.2.lowAlarm
+
+-->
+
+
+
+
+
+
+
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<td><input class=flatbutton type=submit style="font-weight:bold;" value="Apply Changes"></td></tr></table>
+
+
+</form>
+
+</body>
+</html>
+

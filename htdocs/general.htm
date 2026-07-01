@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="leds.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td style="/*border:1px solid #c0c0c0; background:white;*/">
+
+<table width="100%"><tr><td class=title>General</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Device Name</td><td><script language=aeinfo>printInput aquaero.name</script></td></tr>
+
+<tr><td class=section colspan=2 nowrap>Information</td></tr>
+<tr><td width=30% class="label">Connected Devices</td><td class=label><script language=aeinfo>printFriendlyEnumValue aquabus.devices</script></td></tr>
+<tr><td class="label">Firmware</td><td><tt><script language=aeinfo>printValue aquaero.firmware.name</script></tt></td></tr>
+<tr><td class="label">Firmware-Rev.</td><td><tt><script language=aeinfo>printValue aquaero.firmware.revision</script></tt></td></tr>
+<tr><td class="label">OS-Version</td><td><tt><script language=aeinfo>printValue aquaero.os.version</script></tt></td></tr>
+<tr><td class="label">Flash-Counter</td><td><tt><script language=aeinfo>printValue aquaero.flashCounter</script></tt></td></tr>
+<tr><td class="label">HW-Revision</td><td><tt><script language=aeinfo>printValue aquaero.hardwareRevision</script></tt></td></tr>
+<tr><td class="label">S/N</td><td><tt><script language=aeinfo>printValue aquaero.serialNumber</script></tt></td></tr>
+<tr><td class="label">Production Month</td><td><tt><script language=aeinfo>printValue aquaero.productionMonth</script>/<script language=aeinfo>printValue aquaero.productionYear</script></tt></td></tr>
+<tr><td class="label">Language</td><td><tt><script language=aeinfo>printValue aquaero.language</script></tt></td></tr>
+<tr><td class="label">Aquaero-Time</td><td><tt><script language=aeinfo>printfValue time.hours,%2d</script>:<script language=aeinfo>printfValue time.minutes,%02d</script>:<script language=aeinfo>printfValue time.seconds,%02d</script></tt></td></tr>
+
+
+
+
+<!--
+aquaero.name
+(aquaero.control)
+(aquabus.status)
+aquabus.devices:
+  _ADD_ENUM("ABaquastream_1", Bit0,"aquastream 1");
+  _ADD_ENUM("ABaquastream_2", Bit1,"aquastream 2");
+  _ADD_ENUM("ABtubemeter", Bit3,"tubemeter");
+  _ADD_ENUM("multiswitch_1", Bit4,"multiswitch 1");
+  _ADD_ENUM("multiswitch_2", Bit5,"multiswitch 2");
+aquaero.firmware.name
+aquaero.os.version
+aquaero.firmware.revision
+aquaero.flashCounter
+aquaero.hardwareRevision
+aquaero.serialNumber
+aquaero.productionMonth
+aquaero.productionYear
+aquaero.language
+
+-->
+
+</table>
+
+</td>
+</tr>
+
+
+
+
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<td><input class=flatbutton type=submit style="font-weight:bold;" value="Apply Changes"></td></tr></table>
+
+
+</form>
+
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body bgcolor=white>
+<form name=ttt method=get action="setdata">
+<input type=hidden name="nextAction" value="leds.htm">
+
+<table class=wiz width="100%">
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>LED 1</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Pulse-Width-Modulation (PWM) Value [%]</td><td><script language=aeinfo>printInput led.1.pwm</script></td></tr>
+<tr><td class="label">Set LED Manually</td><td><script language=aeinfo>printCheckbox led.1.mode,Manual_Auto_Switch</script></td></tr>
+<tr><td class="label">LED blinks when Alarm occurs</td><td><script language=aeinfo>printCheckbox led.1.mode,Alarm_Flash</script></td></tr>
+<tr><td class="label">With rising temperature, the LED gets brighter</td><td><script language=aeinfo>printCheckbox led.1.mode,Hot_Cold</script></td></tr>
+<tr><td class="label">Sensor</td><td><script language=aeinfo>printSensorSelection led.1.sensor.1</script><span class=label>&nbsp;and&nbsp;</span><script language=aeinfo>printSensorSelection led.1.sensor.2</script></td></tr>
+
+<!--
+led.1.pwm
+led.1.mod: Manual_Auto_Switch, Alarm_Flash, Hot_Cold
+led.1.sensor.1
+
+-->
+
+</table>
+
+</td>
+</tr>
+
+<tr><td>&nbsp;</td></tr>
+
+<tr>
+<td>
+
+<table width="100%"><tr><td class=title>LED 2</td></tr></table>
+
+<table width="100%">
+<tr><td width=30% class="label">Pulse-Width-Modulation (PWM) Value [%]</td><td><script language=aeinfo>printInput led.2.pwm</script></td></tr>
+<tr><td class="label">Set LED Manually</td><td><script language=aeinfo>printCheckbox led.2.mode,Manual_Auto_Switch</script></td></tr>
+<tr><td class="label">LED blinks when Alarm occurs</td><td><script language=aeinfo>printCheckbox led.2.mode,Alarm_Flash</script></td></tr>
+<tr><td class="label">With rising temperature, the LED gets brighter</td><td><script language=aeinfo>printCheckbox led.2.mode,Hot_Cold</script></td></tr>
+<tr><td class="label">Sensor</td><td><script language=aeinfo>printSensorSelection led.2.sensor.1</script><span class=label>&nbsp;and&nbsp;</span><script language=aeinfo>printSensorSelection led.2.sensor.2</script></td></tr>
+
+<!--
+led.2.pwm
+led.2.mod: Manual_Auto_Switch, Alarm_Flash, Hot_Cold
+led.2.sensor.1
+
+-->
+
+</table>
+
+</td>
+</tr>
+
+
+
+</table>
+
+<table border=0 width="100%"><tr><td width="100%">&nbsp;</td>
+<td><input class=flatbutton type=button value="Refresh" onClick="window.location.reload();"></td>
+<td><input class=flatbutton type=submit style="font-weight:bold;" value="Apply Changes"></td></tr></table>
+
+
+</form>
+
+</body>
+</html>
+
